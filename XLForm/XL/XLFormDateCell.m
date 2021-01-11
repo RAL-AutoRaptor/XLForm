@@ -197,6 +197,10 @@
 
 -(void)setModeToDatePicker:(UIDatePicker *)datePicker
 {
+    if (@available(iOS 13.4, *)) {
+            datePicker.preferredDatePickerStyle = UIDatePickerStyleWheels;
+        }
+    
     if ((([self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeDateInline] || [self.rowDescriptor.rowType isEqualToString:XLFormRowDescriptorTypeDate]) && self.formDatePickerMode == XLFormDateDatePickerModeGetFromRowDescriptor) || self.formDatePickerMode == XLFormDateDatePickerModeDate){
         datePicker.datePickerMode = UIDatePickerModeDate;
     }
